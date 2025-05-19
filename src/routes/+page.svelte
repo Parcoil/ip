@@ -2,7 +2,7 @@
 	import { Clipboard } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import { Toaster, toast } from 'svelte-sonner';
-
+	import { blur, crossfade, draw, fade, fly, scale, slide } from 'svelte/transition';
 	let ipinfo;
 
 	async function getIp() {
@@ -21,12 +21,12 @@
 	});
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	<title>IP: {ipinfo?.ip}</title>
-</svelte:head>
+</svelte:head> -->
 
 {#if ipinfo}
-	<div class="mt-10 flex flex-col items-center">
+	<div class="mt-10 flex flex-col items-center" transition:slide>
 		<div class="card bg-base-200 w-full max-w-2xl shadow-xl">
 			<div class="card-body items-center text-center">
 				<div class="flex items-center space-x-4">
