@@ -2,8 +2,8 @@
 	import { Clipboard } from '@lucide/svelte';
 	import { onMount } from 'svelte';
 	import { Toaster, toast } from 'svelte-sonner';
-	import { blur, crossfade, draw, fade, fly, scale, slide } from 'svelte/transition';
-	let ipinfo;
+	import { slide } from 'svelte/transition';
+	let ipinfo = $state();
 
 	async function getIp() {
 		const response = await fetch('https://ipwho.is/');
@@ -36,7 +36,7 @@
 				<div class="mt-4">
 					<p class="text-primary text-4xl font-bold">
 						{ipinfo?.ip}
-						<button class="" on:click={copyIP} title="Copy IP">
+						<button class="" onclick={copyIP} title="Copy IP">
 							<Clipboard class="h-5 w-5" />
 						</button>
 					</p>
